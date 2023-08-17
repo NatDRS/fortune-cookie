@@ -13,6 +13,7 @@ let phrases = [
 
 closedCookie.addEventListener("click", readPhrase);
 openedCookie.addEventListener("click", changePhrase);
+document.addEventListener("keydown", tryAgain);
 
 function readPhrase(event) {
   event.preventDefault();
@@ -29,6 +30,16 @@ function randomPhrases(min, max) {
   return phrase;
 }
 
+/**
+ * outro modo de gerar string aleatórias 
+ * function pickFortune() {
+    let allFortunes = fortune.length
+    let randomNumber = Math.floor(Math.random() * allFortunes)  
+    screen2.querySelector("h2").innerText = `${fortune[randomNumber]}`
+    onde fortune é a array com frases declarada fora do escopo
+}
+ */
+
 function changePhrase(event) {
   event.preventDefault();
   toggleScreen();
@@ -37,4 +48,10 @@ function changePhrase(event) {
 function toggleScreen() {
   screen1.classList.toggle("hide");
   screen2.classList.toggle("hide");
+}
+
+function tryAgain(e) {
+  if (e.key == "Enter" && screen1.classList.contains("hide")) {
+    toggleScreen();
+  }
 }
