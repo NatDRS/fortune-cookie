@@ -5,7 +5,9 @@
 }
 
 body {
-  background: linear-gradient(45deg, #190361 0%, #b0f 100%) no-repeat;
+  background: linear-gradient(45deg, #190361, #b0f) no-repeat;
+  animation: gradient 10s ease infinite;
+  background-size: 200% 200%;
   color: #34355b;
   height: 100vh;
   display: grid;
@@ -81,6 +83,18 @@ p {
 
   100% {
     transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
